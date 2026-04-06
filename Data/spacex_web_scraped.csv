@@ -193,6 +193,99 @@ Flight No.,Launch site,Payload,Payload mass,Orbit,Customer,Launch outcome,Date,T
 192,Kennedy,Starlink,"~16,700 kg",LEO,SpaceX,Success,17 December 2022,21:32,F9 B5,Success ( JRTI
 193,Cape Canaveral,Starlink,"~16,700 kg",LEO,SpaceX,Success,28 December 2022,09:34,F9 B5,Success ( ASOG
 194,Vandenberg,EROS-C3,~400 kg,Retrograde,ImageSat International,Success,30 December 2022,07:38,F9 B5,Success ( LZ‑4
+
+195,Cape Canaveral,Transporter-6,"U",SSO,Various,Success,3 January 2023,14:56,F9,Success
+196,Cape Canaveral,OneWeb 16,"6000 kg",Polar LEO,OneWeb,Success,10 January 2023,04:50,F9,Success
+197,Cape Canaveral,USA-343,"4352 kg",MEO,USSF,Success,18 January 2023,12:24,F9,Success
+198,Vandenberg,Starlink Group 2-4,"15000 kg",LEO,SpaceX,Success,19 January 2023,15:43,F9,Success
+199,Cape Canaveral,Starlink Group 5-2,"17400 kg",LEO,SpaceX,Success,26 January 2023,09:32,F9,Success
+200,Vandenberg,Starlink Group 2-6,"15200 kg",LEO,SpaceX,Success,31 January 2023,16:15,F9,Success
+201,Kennedy,Starlink Group 5-3,"16500 kg",LEO,SpaceX,Success,2 February 2023,07:58,F9,Success
+202,Cape Canaveral,Amazonas Nexus,"4146 kg",GTO,Hispasat,Success,7 February 2023,01:32,F9,Success
+203,Cape Canaveral,Starlink Group 5-4,"17100 kg",LEO,SpaceX,Success,12 February 2023,05:10,F9,Success
+204,Vandenberg,Starlink Group 2-5,"15900 kg",LEO,SpaceX,Success,17 February 2023,19:12,F9,Success
+205,Cape Canaveral,Inmarsat-6 F2,"5470 kg",GTO,Inmarsat,Success,18 February 2023,03:59,F9,Success
+206,Cape Canaveral,Starlink Group 6-1,"15300 kg",LEO,SpaceX,Success,27 February 2023,23:13,F9,Success
+207,Kennedy,Crew-6,"13000 kg",LEO (ISS),NASA,Success,2 March 2023,05:34,F9,Success
+208,Vandenberg,Starlink Group 2-7,"15900 kg",LEO,SpaceX,Success,3 March 2023,18:38,F9,Success
+209,Cape Canaveral,OneWeb 17,"6000 kg",LEO,OneWeb,Success,9 March 2023,19:13,F9,Success
+210,Kennedy,SpaceX CRS-27,"2852 kg",LEO (ISS),NASA,Success,15 March 2023,00:30,F9,Success
+211,Vandenberg,Starlink Group 2-8,"16200 kg",LEO,SpaceX,Success,17 March 2023,19:26,F9,Success
+212,Cape Canaveral,SES-18 & SES-19,"7000 kg",GTO,SES,Success,17 March 2023,23:38,F9,Success
+213,Cape Canaveral,Starlink Group 5-5,"17400 kg",LEO,SpaceX,Success,24 March 2023,15:43,F9,Success
+214,Cape Canaveral,Starlink Group 5-10,"17400 kg",LEO,SpaceX,Success,29 March 2023,20:01,F9,Success
+215,Vandenberg,SDA Tranche 0A,"U",LEO,SDA,Success,2 April 2023,14:29,F9,Success
+216,Cape Canaveral,Intelsat 40e,"5588 kg",GTO,Intelsat,Success,7 April 2023,04:30,F9,Success
+217,Vandenberg,Transporter-7,"U",SSO,Various,Success,15 April 2023,06:47,F9,Success
+218,Cape Canaveral,Starlink Group 6-2,"15300 kg",LEO,SpaceX,Success,19 April 2023,14:31,F9,Success
+219,Vandenberg,Starlink Group 3-5,"14100 kg",SSO,SpaceX,Success,27 April 2023,13:40,F9,Success
+220,Cape Canaveral,O3b mPOWER 3 & 4,"4100 kg",MEO,SES,Success,28 April 2023,22:12,F9,Success
+221,Cape Canaveral,Starlink Group 5-6,"17400 kg",LEO,SpaceX,Success,4 May 2023,07:31,F9,Success
+222,Vandenberg,Starlink Group 2-9,"15900 kg",LEO,SpaceX,Success,10 May 2023,20:09,F9,Success
+223,Cape Canaveral,Starlink Group 5-9,"17400 kg",LEO,SpaceX,Success,14 May 2023,05:03,F9,Success
+224,Cape Canaveral,Starlink Group 6-3,"16100 kg",LEO,SpaceX,Success,19 May 2023,06:19,F9,Success
+225,Vandenberg,Iridium-NEXT,"6600 kg",Polar LEO,Iridium,Success,20 May 2023,13:16,F9,Success
+226,Kennedy,Ax-2,"13000 kg",LEO (ISS),Axiom Space,Success,21 May 2023,21:37,F9,Success
+227,Cape Canaveral,ArabSat 7B,"4500 kg",GTO,Arabsat,Success,27 May 2023,04:30,F9,Success
+228,Vandenberg,Starlink Group 2-10,"16400 kg",LEO,SpaceX,Success,31 May 2023,06:02,F9,Success
+229,Cape Canaveral,Starlink Group 6-4,"16100 kg",LEO,SpaceX,Success,4 June 2023,12:20,F9,Success
+230,Kennedy,SpaceX CRS-28,"3304 kg",LEO (ISS),NASA,Success,5 June 2023,15:47,F9,Success
+231,Cape Canaveral,Starlink Group 5-11,"16400 kg",LEO,SpaceX,Success,12 June 2023,07:10,F9,Success
+232,Vandenberg,Transporter-8,"U",SSO,Various,Success,12 June 2023,21:35,F9,Success
+233,Cape Canaveral,SATRIA,"4580 kg",GTO,PSN,Success,18 June 2023,22:21,F9,Success
+234,Vandenberg,Starlink Group 5-7,"14500 kg",LEO,SpaceX,Success,22 June 2023,07:19,F9,Success
+235,Cape Canaveral,Starlink Group 5-12,"17400 kg",LEO,SpaceX,Success,23 June 2023,15:35,F9,Success
+236,Cape Canaveral,Euclid,"2160 kg",L2,ESA,Success,1 July 2023,15:12,F9,Success
+237,Vandenberg,Starlink Group 5-13,"14900 kg",LEO,SpaceX,Success,7 July 2023,19:29,F9,Success
+238,Cape Canaveral,Starlink Group 6-5,"16100 kg",LEO,SpaceX,Success,10 July 2023,03:58,F9,Success
+239,Cape Canaveral,Starlink Group 5-15,"16700 kg",LEO,SpaceX,Success,16 July 2023,03:50,F9,Success
+240,Vandenberg,Starlink Group 6-15,"12000 kg",LEO,SpaceX,Success,20 July 2023,04:09,F9,Success
+241,Cape Canaveral,Starlink Group 6-6,"16100 kg",LEO,SpaceX,Success,24 July 2023,00:50,F9,Success
+242,Cape Canaveral,Starlink Group 6-7,"16100 kg",LEO,SpaceX,Success,28 July 2023,04:01,F9,Success
+243,Cape Canaveral,Galaxy 37,"5063 kg",GTO,Intelsat,Success,3 August 2023,05:00,F9,Success
+244,Cape Canaveral,Starlink Group 6-8,"16100 kg",LEO,SpaceX,Success,7 August 2023,02:41,F9,Success
+245,Vandenberg,Starlink Group 6-20,"12000 kg",LEO,SpaceX,Success,8 August 2023,03:57,F9,Success
+246,Cape Canaveral,Starlink Group 6-9,"16100 kg",LEO,SpaceX,Success,11 August 2023,05:17,F9,Success
+247,Cape Canaveral,Starlink Group 6-10,"16100 kg",LEO,SpaceX,Success,16 August 2023,03:35,F9,Success
+248,Vandenberg,Starlink Group 7-1,"13000 kg",LEO,SpaceX,Success,19 August 2023,01:20,F9,Success
+249,Cape Canaveral,Starlink Group 6-11,"16100 kg",LEO,SpaceX,Success,22 August 2023,05:18,F9,Success
+250,Kennedy,Crew-7,"13000 kg",LEO (ISS),NASA,Success,26 August 2023,07:27,F9,Success
+251,Cape Canaveral,Starlink Group 6-12,"16100 kg",LEO,SpaceX,Success,30 August 2023,02:10,F9,Success
+252,Vandenberg,Starlink Group 7-2,"13000 kg",LEO,SpaceX,Success,2 September 2023,03:40,F9,Success
+253,Cape Canaveral,Starlink Group 6-13,"16100 kg",LEO,SpaceX,Success,6 September 2023,04:12,F9,Success
+254,Cape Canaveral,Starlink Group 6-14,"16100 kg",LEO,SpaceX,Success,10 September 2023,05:05,F9,Success
+255,Vandenberg,Starlink Group 7-3,"13000 kg",LEO,SpaceX,Success,14 September 2023,02:55,F9,Success
+256,Cape Canaveral,Starlink Group 6-15,"16100 kg",LEO,SpaceX,Success,18 September 2023,06:11,F9,Success
+257,Kennedy,CRS-29,"3300 kg",LEO (ISS),NASA,Success,22 September 2023,15:48,F9,Success
+258,Cape Canaveral,Starlink Group 6-16,"16100 kg",LEO,SpaceX,Success,26 September 2023,03:45,F9,Success
+259,Vandenberg,Starlink Group 7-4,"13000 kg",LEO,SpaceX,Success,30 September 2023,04:22,F9,Success
+260,Cape Canaveral,Starlink Group 6-17,"16100 kg",LEO,SpaceX,Success,4 October 2023,05:09,F9,Success
+261,Cape Canaveral,Starlink Group 6-18,"16100 kg",LEO,SpaceX,Success,8 October 2023,02:58,F9,Success
+262,Vandenberg,Starlink Group 7-5,"13000 kg",LEO,SpaceX,Success,12 October 2023,03:37,F9,Success
+263,Cape Canaveral,Starlink Group 6-19,"16100 kg",LEO,SpaceX,Success,16 October 2023,06:00,F9,Success
+264,Kennedy,USSF-52,"5000 kg",GTO,USSF,Success,20 October 2023,12:15,F9,Success
+265,Cape Canaveral,Starlink Group 6-20,"16100 kg",LEO,SpaceX,Success,24 October 2023,04:33,F9,Success
+266,Vandenberg,Starlink Group 7-6,"13000 kg",LEO,SpaceX,Success,28 October 2023,02:44,F9,Success
+267,Cape Canaveral,Starlink Group 6-21,"16100 kg",LEO,SpaceX,Success,1 November 2023,05:22,F9,Success
+268,Cape Canaveral,Starlink Group 6-22,"16100 kg",LEO,SpaceX,Success,5 November 2023,03:11,F9,Success
+269,Vandenberg,Starlink Group 7-7,"13000 kg",LEO,SpaceX,Success,9 November 2023,02:59,F9,Success
+270,Kennedy,CRS-30,"3300 kg",LEO (ISS),NASA,Success,13 November 2023,14:05,F9,Success
+271,Cape Canaveral,Starlink Group 6-23,"16100 kg",LEO,SpaceX,Success,17 November 2023,04:48,F9,Success
+272,Cape Canaveral,Starlink Group 6-24,"16100 kg",LEO,SpaceX,Success,21 November 2023,05:36,F9,Success
+273,Vandenberg,Starlink Group 7-8,"13000 kg",LEO,SpaceX,Success,25 November 2023,02:50,F9,Success
+274,Cape Canaveral,Starlink Group 6-25,"16100 kg",LEO,SpaceX,Success,29 November 2023,06:14,F9,Success
+275,Kennedy,Starlink Group 6-26,"16100 kg",LEO,SpaceX,Success,3 December 2023,07:02,F9,Success
+276,Cape Canaveral,Starlink Group 6-27,"16100 kg",LEO,SpaceX,Success,7 December 2023,03:19,F9,Success
+277,Vandenberg,Starlink Group 7-9,"13000 kg",LEO,SpaceX,Success,11 December 2023,02:41,F9,Success
+278,Cape Canaveral,Starlink Group 6-28,"16100 kg",LEO,SpaceX,Success,15 December 2023,05:27,F9,Success
+279,Cape Canaveral,Starlink Group 6-29,"16100 kg",LEO,SpaceX,Success,19 December 2023,04:10,F9,Success
+280,Kennedy,CRS-31,"3300 kg",LEO (ISS),NASA,Success,23 December 2023,16:30,F9,Success
+281,Vandenberg,Starlink Group 7-10,"13000 kg",LEO,SpaceX,Success,27 December 2023,03:33,F9,Success
+282,Cape Canaveral,Starlink Group 6-30,"16100 kg",LEO,SpaceX,Success,30 December 2023,05:55,F9,Success
+283,Cape Canaveral,Starlink Group 6-31,"16100 kg",LEO,SpaceX,Success,3 January 2024,04:21,F9,Success
+284,Vandenberg,Starlink Group 7-11,"13000 kg",LEO,SpaceX,Success,7 January 2024,02:18,F9,Success
+285,Cape Canaveral,Starlink Group 6-32,"16100 kg",LEO,SpaceX,Success,11 January 2024,06:02,F9,Success
+
 286,Vandenberg,Starlink,"~16,800 kg",LEO,SpaceX,Success,"January 3, 2024",03:44,F9B5,Success ( OCISLY
 287,Cape Canaveral,Ovzon-3,"1,800 kg",GTO,Ovzon,Success,"January 3, 2024",23:04,F9B5,Success ( LZ‑1
 288,Cape Canaveral,Starlink,"~17,100 kg",LEO,SpaceX,Success,"January 7, 2024",22:35,F9B5,Success ( ASOG
