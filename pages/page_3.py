@@ -8,3 +8,5 @@ import pydeck as pdk
 from PIL import Image
 
 st.title("Page 3")
+
+st.image("SpaceX Payload Weight Road to 2030.png")

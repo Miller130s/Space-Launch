@@ -9,5 +9,5 @@ from PIL import Image
 
 st.title("Page 2")
 
-st.image("Vandenberg Prediction (2026–2030).png")
+st.image("Vandenberg_Prediction.png")
 
