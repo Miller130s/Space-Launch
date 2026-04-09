@@ -23,4 +23,4 @@ data = joblib.load('manpower_predict.joblib')
 model = data["model"]
 manpower_prediction = model.predict(power_df)
 
-st.write("Predicted Manpower:", math.ceil(manpower_prediction))
+st.write("Predicted Manpower:", math.ceil(manpower_prediction[0]))
