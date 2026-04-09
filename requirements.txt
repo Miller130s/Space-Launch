@@ -8,3 +8,4 @@ scipy
 pydeck
 pillow
 joblib
+scikit-learn
