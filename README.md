@@ -3,7 +3,7 @@
 #### The space launch industry has started to grow at an exponenetial rate. This graph signifies that the industry is changing and entering a new form of Space Race.
 
 #### Below is a graph of the projected Space Launch growth on each coast projected out to 2030.
-![](Vandenberg_Prediction.png)
+![](Vandenberg_prediction.png)
 ![](Cape_Prediction.png)
 
 #### Here is also a graph showing the increase in heavy payloads being launched into orbit at a higher rate.
@@ -13,7 +13,7 @@
 #### Why is mission assurance important?
 
 #### Mission Assurance is an intergral part of reliablility in space travel. Below is a graph with the percent of success and errors for SpaceX launches from 2010-2026
-![](Total_Success_Percentage_by_Year.png)
+![](Successfrfr.png)
 
 #### As you can see space travel is a safe as it's ever been. But mishaps still happen. This is why it is important to stay engaged and do our part to further safen space travel when providing mission assurance at the pad.
 
