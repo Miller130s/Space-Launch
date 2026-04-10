@@ -11,9 +11,7 @@ st.title("Recommendations")
 
 st.markdown(
 """ 
-- More launch sites in the future dedicated to heavy space launch payload missions
-- More people to support increase of missions (10 personnel minimum per mission per coast,
- double if 2 missions are happening at once)
+- More people to support increase of missions
  - Integrating the need for heavy-lift infrastructure
 - Maximize MAT Capacity and Readiness via Predictive Manpower Modeling
 
