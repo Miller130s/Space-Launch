@@ -258,24 +258,25 @@ location_coords = {
 
 # --- 2. Color Gradient Function (New!) ---
 def calculate_surge_color(launch_count):
-    MIN_LAUNCHES = 1
-    MAX_LAUNCHES = 181 
-    
-    count = max(MIN_LAUNCHES, min(launch_count, MAX_LAUNCHES))
-    # Standard linear ratio
-    base_ratio = (count - MIN_LAUNCHES) / (MAX_LAUNCHES - MIN_LAUNCHES)
-    
-    # ADJUSTMENT: Use a power less than 1 (like 0.5 for Square Root) 
-    # This makes the ratio "jump" to higher values faster.
-    surge_ratio = base_ratio ** 0.5  # 0.5 makes yellow appear much earlier
-    
-    # Red component climbs faster
-    red_c = int(255 * surge_ratio)
-    # Green component stays high longer or drops based on preference
-    # To get a true vibrant yellow sooner, we keep Green at 255 for the first half
-    green_c = int(255 * (1 - (base_ratio ** 2))) # Green drops slower at first
-    
-    return [red_c, green_c, 0, 200]
+    """
+    Categorical color mapping to ensure yellow appears sooner.
+    Scale: Green -> Yellow -> Orange -> Red
+    """
+    # 1. Low Density (Green)
+    if launch_count < 20:
+        return [0, 255, 100, 200]  # Vibrant Mint Green
+        
+    # 2. Starting to surge (Yellow) - Set low to appear sooner
+    elif launch_count < 50:
+        return [255, 255, 0, 200]  # Bright Yellow
+        
+    # 3. High Density (Orange)
+    elif launch_count < 100:
+        return [255, 140, 0, 200]  # Deep Orange
+        
+    # 4. Extreme Surge (Red)
+    else:
+        return [255, 0, 0, 200]    # Bright Red
 
 
 # --- 3. Cleaning Function ---
