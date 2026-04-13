@@ -211,7 +211,8 @@ import re
 st.set_page_config(layout="wide")
 st.title("🚀 Global Launch Density Timeline (1957 - 2030)")
 
-# --- 0. Sidebar Reset (Use this if it gets stuck!) ---
+# --- 0. Hard Reset Mechanism (Crucial for testing new color logic!) ---
+st.sidebar.markdown("### Development Tools")
 if st.sidebar.button("Hard Reset App Cache"):
     st.cache_data.clear()
     st.rerun()
@@ -255,7 +256,34 @@ location_coords = {
     "S. Korea": [36.6432, 127.2068]
 }
 
-# --- 2. Cleaning Function ---
+# --- 2. Color Gradient Function (New!) ---
+def calculate_surge_color(launch_count):
+    """
+    Calculates a color gradient from Green (Low) -> Orange (Medium) -> Red (High).
+    Based on a spectrum of ~1 launch (historical) to ~181 launches (2030 Prediction).
+    """
+    # Define our range boundaries
+    MIN_LAUNCHES = 1
+    MAX_LAUNCHES = 181  # Maximum predicted count in your data
+    
+    # Linear Interpolation of the ratio (0.0 to 1.0)
+    # Ensure count is within bounds
+    count = max(MIN_LAUNCHES, min(launch_count, MAX_LAUNCHES))
+    ratio = (count - MIN_LAUNCHES) / (MAX_LAUNCHES - MIN_LAUNCHES)
+    
+    # Calculate RGB components: Green (Low) to Red (High)
+    # Red component goes UP with count
+    red_c = int(255 * ratio)
+    # Green component goes DOWN with count
+    green_c = int(255 * (1 - ratio))
+    # Blue component stays 0 for this gradient
+    blue_c = 0
+    
+    # Return [R, G, B, Alpha]
+    return [red_c, green_c, blue_c, 200]
+
+
+# --- 3. Cleaning Function ---
 def clean_location(location):
     location = str(location).strip()
     if "Vandenberg" in location: return "Vandenberg"
@@ -295,12 +323,12 @@ def clean_location(location):
     elif "Gran Canaria" in location: return "Gran Canaria"
     return None
 
-# --- 3. Loading Data & Predictions ---
+# --- 4. Loading Data & Predictions ---
 @st.cache_data
-def load_prepared_data_v2():
+def load_prepared_data_surge():
     try:
         # Load and clean the CSV
-        df = pd.read_csv("Data/Master_Space_Data_All.txt")
+        df = pd.read_csv("data/Master_Space_Data_All.csv")
     except:
         return pd.DataFrame(), pd.DataFrame()
 
@@ -319,7 +347,7 @@ def load_prepared_data_v2():
     df["lon"] = df["clean_loc"].apply(lambda x: location_coords.get(x, [None, None])[1])
     df = df.dropna(subset=['lat', 'lon'])
     
-    # PREDICTION DATA
+    # PREDICTION DATA (Explicit Counts provided by user)
     predictions = [
         {"year": 2026, "clean_loc": "Cape Canaveral", "launch_count": 95},
         {"year": 2026, "clean_loc": "Vandenberg", "launch_count": 45},
@@ -364,11 +392,11 @@ def load_prepared_data_v2():
     
     return df.copy(), pdf
 
-space_df, predict_df = load_prepared_data_v2()
+space_df, predict_df = load_prepared_data_surge()
 
-# --- 4. Main App & Animation ---
+# --- 5. Main App & Animation ---
 if space_df.empty and predict_df.empty:
-    st.error("No data found. Ensure your CSV is in 'data/Master_Space_Data_All.csv'.")
+    st.error("No data found. Ensure your CSV is in 'data/Master_Space_Data_All.csv' and hard reset cache.")
 else:
     # Determine the timeline range correctly
     if not space_df.empty:
@@ -384,23 +412,25 @@ else:
 
         for year in range(min_year, max_year + 1):
             if year <= 2025:
-                # Filter historical dataframe
+                # Historical processing
                 current_data = space_df[space_df['year'] == year]
-                if current_data.empty: continue # Skip years with no launches
-                
+                if current_data.empty: continue
                 launch_counts = current_data.groupby(["lat", "lon", "clean_loc"]).size().reset_index(name="launch_count")
                 status_text = "Historical"
-                bar_color = [255, 165, 0, 180] # Orange
             else:
-                # Filter prediction dataframe
+                # Prediction processing
                 launch_counts = predict_df[predict_df['year'] == year].copy()
                 status_text = "PREDICTED SURGE"
-                bar_color = [0, 255, 100, 200] # Green
 
             if not launch_counts.empty:
+                # Prepare Pydeck Visuals
                 launch_counts["coordinates"] = launch_counts.apply(lambda r: [r["lon"], r["lat"]], axis=1)
-                launch_counts["elevation"] = launch_counts["launch_count"] * 12000 # Increased scale for visibility
-                launch_counts["color"] = [bar_color] * len(launch_counts)
+                
+                # Dynamic Elevation Scaling (Slightly reduced to avoid camera clipping)
+                launch_counts["elevation"] = launch_counts["launch_count"] * 10000 
+                
+                # --- Dynamic Color Scaling (New!) ---
+                launch_counts["color"] = launch_counts["launch_count"].apply(calculate_surge_color)
 
                 layer = pdk.Layer(
                     "ColumnLayer",
@@ -411,15 +441,18 @@ else:
                     radius=80000,
                     extruded=True,
                     pickable=True,
+                    auto_highlight=True,
                 )
 
                 header_placeholder.subheader(f"Global Launches in: {year} ({status_text})")
+                
+                # Added White border to the columns to standardize the radius look
                 map_placeholder.pydeck_chart(pdk.Deck(
                     layers=[layer],
                     initial_view_state=pdk.ViewState(latitude=20, longitude=10, zoom=1.1, pitch=45),
                     tooltip={"html": "<b>Location:</b> {clean_loc}<br/><b>Count:</b> {launch_count}"}
                 ))
             
-            time.sleep(.3)
+            time.sleep(0.3)
     else:
-        st.info(f"Historical Data Found from {min_year}. Predictions through {max_year}. Click 'Start' to begin.")
+        st.info(f"Historical Data Found from {min_year}. Predictions through {max_year}. Color shifts Green -> Red as density increases. Click 'Start' to begin.")
