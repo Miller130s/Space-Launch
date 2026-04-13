@@ -328,7 +328,7 @@ def clean_location(location):
 def load_prepared_data_surge():
     try:
         # Load and clean the CSV
-        df = pd.read_csv("data/Master_Space_Data_All.csv")
+        df = pd.read_csv("Data/Master_Space_Data_All.txt")
     except:
         return pd.DataFrame(), pd.DataFrame()
 
