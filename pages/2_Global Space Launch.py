@@ -420,6 +420,6 @@ else:
                     tooltip={"html": "<b>Location:</b> {clean_loc}<br/><b>Count:</b> {launch_count}"}
                 ))
             
-            time.sleep(2)
+            time.sleep(.1)
     else:
         st.info(f"Historical Data Found from {min_year}. Predictions through {max_year}. Click 'Start' to begin.")
