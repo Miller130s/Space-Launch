@@ -258,29 +258,24 @@ location_coords = {
 
 # --- 2. Color Gradient Function (New!) ---
 def calculate_surge_color(launch_count):
-    """
-    Calculates a color gradient from Green (Low) -> Orange (Medium) -> Red (High).
-    Based on a spectrum of ~1 launch (historical) to ~181 launches (2030 Prediction).
-    """
-    # Define our range boundaries
     MIN_LAUNCHES = 1
-    MAX_LAUNCHES = 181  # Maximum predicted count in your data
+    MAX_LAUNCHES = 181 
     
-    # Linear Interpolation of the ratio (0.0 to 1.0)
-    # Ensure count is within bounds
     count = max(MIN_LAUNCHES, min(launch_count, MAX_LAUNCHES))
-    ratio = (count - MIN_LAUNCHES) / (MAX_LAUNCHES - MIN_LAUNCHES)
+    # Standard linear ratio
+    base_ratio = (count - MIN_LAUNCHES) / (MAX_LAUNCHES - MIN_LAUNCHES)
     
-    # Calculate RGB components: Green (Low) to Red (High)
-    # Red component goes UP with count
-    red_c = int(255 * ratio)
-    # Green component goes DOWN with count
-    green_c = int(255 * (1 - ratio))
-    # Blue component stays 0 for this gradient
-    blue_c = 0
+    # ADJUSTMENT: Use a power less than 1 (like 0.5 for Square Root) 
+    # This makes the ratio "jump" to higher values faster.
+    surge_ratio = base_ratio ** 0.5  # 0.5 makes yellow appear much earlier
     
-    # Return [R, G, B, Alpha]
-    return [red_c, green_c, blue_c, 200]
+    # Red component climbs faster
+    red_c = int(255 * surge_ratio)
+    # Green component stays high longer or drops based on preference
+    # To get a true vibrant yellow sooner, we keep Green at 255 for the first half
+    green_c = int(255 * (1 - (base_ratio ** 2))) # Green drops slower at first
+    
+    return [red_c, green_c, 0, 200]
 
 
 # --- 3. Cleaning Function ---
@@ -438,7 +433,7 @@ else:
                     get_position="coordinates",
                     get_elevation="elevation",
                     get_fill_color="color",
-                    radius=80000,
+                    radius=90000,
                     extruded=True,
                     pickable=True,
                     auto_highlight=True,
