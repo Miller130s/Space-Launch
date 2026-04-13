@@ -11,11 +11,12 @@ st.title("Recommendations")
 
 st.markdown(
 """ 
-- More people to support increase of missions
 
  - Integrating the need for heavy-lift infrastructure
 
 - Maximize MAT Capacity and Readiness via Predictive Manpower Modeling
+
+- More people to support increase of missions
 
 """
 )
