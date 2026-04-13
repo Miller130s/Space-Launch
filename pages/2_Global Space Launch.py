@@ -23,7 +23,7 @@ import pandas as pd
 import time
 
 st.set_page_config(layout="wide")
-st.title("🚀 Global Launch Density Timeline (1957 - 2025)")
+st.title("🚀 Global Launch Timeline (1957 - 2025)")
 
 # --- 1. Your Coordinate Mapping ---
 location_coords = {
