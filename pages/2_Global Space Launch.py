@@ -211,6 +211,11 @@ import re
 st.set_page_config(layout="wide")
 st.title("🚀 Global Launch Density Timeline (1957 - 2030)")
 
+# --- 0. Sidebar Reset (Use this if it gets stuck!) ---
+if st.sidebar.button("Hard Reset App Cache"):
+    st.cache_data.clear()
+    st.rerun()
+
 # --- 1. Coordinate Mapping ---
 location_coords = {
     "Plesetsk Cosmodrome": [64.6970, 40.2320],
@@ -292,11 +297,12 @@ def clean_location(location):
 
 # --- 3. Loading Data & Predictions ---
 @st.cache_data
-def load_prepared_data():
+def load_prepared_data_v2():
     try:
+        # Load and clean the CSV
         df = pd.read_csv("data/Master_Space_Data_All.csv")
     except:
-        df = pd.DataFrame(columns=['Datum', 'Location'])
+        return pd.DataFrame(), pd.DataFrame()
 
     def extract_year(date_str):
         match = re.search(r'(19\d{2}|20\d{2})', str(date_str))
@@ -304,11 +310,16 @@ def load_prepared_data():
 
     df['year'] = df['Datum'].apply(extract_year)
     df["clean_loc"] = df["Location"].apply(clean_location)
-    df = df.dropna(subset=['year', 'clean_loc'])
-    df["lat"] = df["clean_loc"].apply(lambda x: location_coords[x][0] if x in location_coords else None)
-    df["lon"] = df["clean_loc"].apply(lambda x: location_coords[x][1] if x in location_coords else None)
     
-    # YOUR ACTUAL PREDICTION DATA (Corrected Years)
+    # Filter for valid years and locations
+    df = df.dropna(subset=['year', 'clean_loc'])
+    
+    # Map coordinates
+    df["lat"] = df["clean_loc"].apply(lambda x: location_coords.get(x, [None, None])[0])
+    df["lon"] = df["clean_loc"].apply(lambda x: location_coords.get(x, [None, None])[1])
+    df = df.dropna(subset=['lat', 'lon'])
+    
+    # PREDICTION DATA
     predictions = [
         {"year": 2026, "clean_loc": "Cape Canaveral", "launch_count": 95},
         {"year": 2026, "clean_loc": "Vandenberg", "launch_count": 45},
@@ -351,17 +362,20 @@ def load_prepared_data():
     pdf["lat"] = pdf["clean_loc"].apply(lambda x: location_coords[x][0])
     pdf["lon"] = pdf["clean_loc"].apply(lambda x: location_coords[x][1])
     
-    return df.dropna(subset=['lat', 'lon']).copy(), pdf
+    return df.copy(), pdf
 
-space_df, predict_df = load_prepared_data()
+space_df, predict_df = load_prepared_data_v2()
 
 # --- 4. Main App & Animation ---
 if space_df.empty and predict_df.empty:
-    st.error("No data found. Check your CSV and prediction lists.")
+    st.error("No data found. Ensure your CSV is in 'data/Master_Space_Data_All.csv'.")
 else:
-    # Determine the timeline range
-    hist_years = space_df['year'].unique()
-    min_year = int(min(hist_years)) if len(hist_years) > 0 else 2026
+    # Determine the timeline range correctly
+    if not space_df.empty:
+        min_year = int(space_df['year'].min())
+    else:
+        min_year = 2026
+    
     max_year = 2030
 
     if st.button('▶️ Start Year-by-Year Animation'):
@@ -370,19 +384,22 @@ else:
 
         for year in range(min_year, max_year + 1):
             if year <= 2025:
+                # Filter historical dataframe
                 current_data = space_df[space_df['year'] == year]
+                if current_data.empty: continue # Skip years with no launches
+                
                 launch_counts = current_data.groupby(["lat", "lon", "clean_loc"]).size().reset_index(name="launch_count")
                 status_text = "Historical"
                 bar_color = [255, 165, 0, 180] # Orange
             else:
+                # Filter prediction dataframe
                 launch_counts = predict_df[predict_df['year'] == year].copy()
                 status_text = "PREDICTED SURGE"
                 bar_color = [0, 255, 100, 200] # Green
 
             if not launch_counts.empty:
                 launch_counts["coordinates"] = launch_counts.apply(lambda r: [r["lon"], r["lat"]], axis=1)
-                # Elevation scaling (1 launch = 10km height)
-                launch_counts["elevation"] = launch_counts["launch_count"] * 10000 
+                launch_counts["elevation"] = launch_counts["launch_count"] * 12000 # Increased scale for visibility
                 launch_counts["color"] = [bar_color] * len(launch_counts)
 
                 layer = pdk.Layer(
@@ -403,6 +420,6 @@ else:
                     tooltip={"html": "<b>Location:</b> {clean_loc}<br/><b>Count:</b> {launch_count}"}
                 ))
             
-            time.sleep(0.4)
+            time.sleep(0.3)
     else:
-        st.info(f"Ready to visualize {min_year} through {max_year}. Click 'Start' to see the surge.")
+        st.info(f"Historical Data Found from {min_year}. Predictions through {max_year}. Click 'Start' to begin.")
