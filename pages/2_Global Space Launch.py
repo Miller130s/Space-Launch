@@ -423,7 +423,7 @@ else:
                 launch_counts["coordinates"] = launch_counts.apply(lambda r: [r["lon"], r["lat"]], axis=1)
                 
                 # Dynamic Elevation Scaling (Slightly reduced to avoid camera clipping)
-                launch_counts["elevation"] = launch_counts["launch_count"] * 10000 
+                launch_counts["elevation"] = launch_counts["launch_count"] * 20000 
                 
                 # --- Dynamic Color Scaling (New!) ---
                 launch_counts["color"] = launch_counts["launch_count"].apply(calculate_surge_color)
