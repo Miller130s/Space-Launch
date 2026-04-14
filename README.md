@@ -1,8 +1,13 @@
 # Space Launch Project
 ### HOME
-### Good morning my name is Nick and this is Jake and we have analyzed over 600 flight records from 1957 to today to see where the space industry is headed. The data shows a massive increase in launches around the world that also seems to be shifting from small-scale launches toward 'Heavy' infrastructure. This brings us to the question, 'In the future, if we have 5 missions going on at once, how many MATs do we actually need? for reference in the rest of the presentation MAT stands for Mission Assurance Technician and as a MAT we watch Launch provider technicians (like SpaceX) work on rockets designated for a space force missions and we make sure they complete high risk tasks accurately.
-### Today, were looking at what happened in the past—to what might happen in the future
 
+#### Good morning. My name is Nick, and this is Jake. We have analyzed over 600 flight records from 1957 to the present to determine where the space industry is headed.
+
+#### Our data shows a massive global increase in launches, alongside a clear shift from small-scale missions toward "Heavy" infrastructure. This brings us to a critical question: In the future, if we have five missions occurring simultaneously, how many MATs do we actually need?
+
+#### For context throughout the rest of this presentation, MAT stands for Mission Assurance Technician. As MATs, we oversee launch provider technicians (such as those at SpaceX) as they work on rockets designated for Space Force missions, ensuring that all high-risk tasks are completed accurately.
+
+#### Today, we’re looking at what happened in the past—to understand what might happen in the future.
  
 
 ![](shift.png)
