@@ -36,7 +36,7 @@
 
 <img width="670" height="480" alt="img_1401_360" src="https://github.com/user-attachments/assets/96bc473d-b33c-45b1-b461-5c34e9ad6358" />
 
-
+#### This is a time lapse video of all off the global launes from 1957 to 2025. It also includes a prediction to 2030 for the USA and China. (Due to Github only allowing 10 MB video file we had to conver the MP4 to a GIF)
 
 ![](Vandenberg_prediction.png)
 ![](Cape_Prediction.png)
